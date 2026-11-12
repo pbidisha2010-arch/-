@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100d0c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>RAMAN DULARI – Bhakti Dham</title>
+<style>
+:root{--bg:#100d0c;--panel:#29201d;--gold:#e8c47b;--muted:#c9a96d;--text:#fff8ed}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
+main{max-width:760px;margin:auto;padding:22px 16px 40px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1{font-size:clamp(27px,6vw,40px);color:var(--gold);letter-spacing:.4px;margin:0}
+.tag{color:var(--muted);margin-top:3px}.lotus{font-size:32px;color:var(--gold)}
+.hero{width:100%;height:clamp(210px,55vw,370px);object-fit:cover;border-radius:22px;margin-top:24px;border:1px solid #55402a}
+.center{text-align:center}.welcome{font-size:30px;color:var(--gold);margin:18px 0 5px}.sub{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--panel);border-radius:20px;padding:18px;min-height:190px;border:1px solid #3d3029}
+.card h2{font-size:21px;margin:8px 0;color:#fff}.symbol{font-size:27px;color:var(--gold)}
+.big{font-size:38px;color:var(--gold);font-weight:700;margin:12px 0}
+button{border:0;border-radius:30px;padding:12px 16px;background:#514640;color:white;font-size:16px;font-weight:650;cursor:pointer}
+button.secondary{background:transparent;border:1px solid #8b765f;color:#e9d6bd}
+button:active{transform:scale(.98)}.wide{width:100%;margin-top:8px}
+.note{color:#c6b8a9;font-size:13px;line-height:1.5;margin-top:10px}
+.section{margin-top:16px}.section .card{min-height:unset}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.quote{color:var(--gold);font-size:18px;text-align:center;margin:26px 0 8px}
+footer{text-align:center;color:#a9947b;font-size:13px;margin-top:26px}
+@media(max-width:430px){.grid{gap:10px}.card{padding:14px}.card h2{font-size:18px}.big{font-size:32px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div><h1>RAMAN DULARI</h1><div class="tag">A Journey of Divine Love</div></div>
+  <div class="lotus">❀</div>
+</header>
+<img class="hero" src="radha_raman_darshan.jpg" alt="श्री राधारमण जी का दर्शन">
+<div class="center">
+  <div class="welcome">राधे राधे ❤️</div>
+  <p class="sub">श्री राधारमण जी की कृपा ही केवलम्</p>
+</div>
+<div class="grid">
+  <section class="card">
+    <div class="symbol">❀</div><h2>Radha Naam Jaap</h2>
+    <div class="big"><span id="count">0</span>/108</div>
+    <button class="wide" id="jaap">+ एक जाप</button>
+    <button class="wide secondary" id="reset">Reset</button>
+    <p class="note" id="complete" aria-live="polite">हर जाप प्रेम और श्रद्धा से करें।</p>
+  </section>
+  <section class="card">
+    <div class="symbol">♫</div><h2>Bhajan &amp; Kirtan</h2>
+    <p class="tag">Radha Naam · Gurudev Bhajan</p>
+    <label class="note" for="audioFile">अपनी audio file चुनें:</label>
+    <input id="audioFile" type="file" accept="audio/*" style="width:100%;margin-top:8px;color:#eee">
+    <audio id="player" controls style="width:100%;margin-top:12px;display:none"></audio>
+    <p class="note">अपनी अनुमति-प्राप्त भजन/नाम-जाप रिकॉर्डिंग चुनकर सुनें।</p>
+  </section>
+</div>
+<div class="section grid">
+  <section class="card"><div class="symbol">📖</div><h2>Gurudev Katha</h2><p class="note">कथा, सत्संग एवं प्रवचन</p></section>
+  <section class="card"><div class="symbol">🪔</div><h2>Daily Darshan</h2><p class="note">नित्य ठाकुरजी दर्शन</p></section>
+</div>
+<section class="section card">
+  <h2>24 Hours Radha Naam</h2>
+  <p class="note">लगातार ऑडियो चलाने के लिए अपनी अनुमति-प्राप्त लंबी नाम-जाप रिकॉर्डिंग चुनें। इस शुरुआती संस्करण में ऐप अपने-आप कोई ऑनलाइन ऑडियो स्ट्रीम नहीं करता।</p>
+  <label class="note" for="longAudio">Naam audio file:</label>
+  <input id="longAudio" type="file" accept="audio/*" style="width:100%;margin-top:8px;color:#eee">
+  <audio id="longPlayer" controls loop style="width:100%;margin-top:12px;display:none"></audio>
+</section>
+<div class="quote">श्री राधारमणो विजयते 🌸</div>
+<footer>RAMAN DULARI · Bhakti Dham<br>Hindi + English · Dark Devotional Edition</footer>
+</main>
+<script>
+let count=0;
+const countEl=document.getElementById('count');
+document.getElementById('jaap').addEventListener('click',()=>{
+  if(count<108) count++;
+  countEl.textContent=count;
+  document.getElementById('complete').textContent=count===108?'108 जाप पूर्ण! राधे राधे 🙏':'राधे राधे 🙏';
+});
+document.getElementById('reset').addEventListener('click',()=>{
+  count=0;countEl.textContent=count;document.getElementById('complete').textContent='हर जाप प्रेम और श्रद्धा से करें।';
+});
+function loadAudio(inputId,playerId){
+  document.getElementById(inputId).addEventListener('change',e=>{
+    const f=e.target.files && e.target.files[0]; if(!f)return;
+    const p=document.getElementById(playerId);p.src=URL.createObjectURL(f);p.style.display='block';p.load();
+  });
+}
+loadAudio('audioFile','player');loadAudio('longAudio','longPlayer');
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+}
+</script>
+</body></html>
