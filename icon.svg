@@ -1,1 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="112" fill="#100d0c"/><circle cx="256" cy="256" r="190" fill="none" stroke="#e8c47b" stroke-width="10"/><path d="M256 95c-22 58-55 83-105 105 50 22 83 55 105 105 22-50 55-83 105-105-50-22-83-47-105-105Z" fill="#e8c47b"/><text x="256" y="365" text-anchor="middle" font-size="62" font-family="serif" fill="#e8c47b">राधे</text></svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+  <stop stop-color="#10052e"/>
+  <stop offset=".55" stop-color="#6b176d"/>
+  <stop offset="1" stop-color="#d33b91"/>
+ </linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+  <stop stop-color="#fff4bd"/>
+  <stop offset=".5" stop-color="#e6a52e"/>
+  <stop offset="1" stop-color="#fff0c0"/>
+ </linearGradient>
+</defs>
+
+<rect width="512" height="512" rx="85" fill="url(#bg)"/>
+
+<!-- Circular ring -->
+<circle cx="256" cy="235" r="190" fill="none"
+ stroke="url(#gold)" stroke-width="7"/>
+<circle cx="256" cy="235" r="179" fill="none"
+ stroke="#ff9bd3" stroke-width="2"/>
+
+<!-- Peacock feather -->
+<path d="M256 85 Q190 30 178 105 Q190 150 256 145"
+ fill="#23d4bd" stroke="#f6ca62" stroke-width="4"/>
+<ellipse cx="207" cy="104" rx="13" ry="25" fill="#1769d2"/>
+<ellipse cx="207" cy="104" rx="6" ry="15" fill="#54edcf"/>
+
+<!-- Flute -->
+<g transform="rotate(-12 256 205)">
+ <rect x="135" y="190" width="242" height="19" rx="9"
+ fill="url(#gold)" stroke="#fff3c2" stroke-width="3"/>
+ <g fill="#70215b">
+  <circle cx="185" cy="199" r="4"/>
+  <circle cx="220" cy="199" r="4"/>
+  <circle cx="255" cy="199" r="4"/>
+  <circle cx="290" cy="199" r="4"/>
+  <circle cx="325" cy="199" r="4"/>
+ </g>
+</g>
+
+<!-- Lotus -->
+<g fill="#ff8acb" stroke="#ffe2a1" stroke-width="2">
+ <path d="M256 225 Q205 165 230 155 Q260 185 256 225"/>
+ <path d="M256 225 Q307 165 282 155 Q252 185 256 225"/>
+ <path d="M256 225 Q185 215 205 180 Q240 190 256 225"/>
+ <path d="M256 225 Q327 215 307 180 Q272 190 256 225"/>
+</g>
+
+<!-- Straight name inside circle -->
+<text x="256" y="315" text-anchor="middle"
+ font-family="Georgia,serif" font-size="43"
+ font-weight="bold" letter-spacing="1"
+ fill="url(#gold)">RAMAN</text>
+<text x="256" y="363" text-anchor="middle"
+ font-family="Georgia,serif" font-size="43"
+ font-weight="bold" letter-spacing="1"
+ fill="url(#gold)">DULARI</text>
+
+<!-- Name outside circle -->
+<text x="256" y="477" text-anchor="middle"
+ font-family="Georgia,serif" font-size="21"
+ letter-spacing="4" fill="#ffe6b0">BIDISHA SAKHI</text>
+</svg>
